@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import Image from "next/image"
 import {
   Activity,
   BarChart3,
@@ -15,7 +16,6 @@ import {
   Eye,
   Lock,
   Workflow,
-  ArrowRight,
 } from "lucide-react"
 
 export default function StreamGovernancePage() {
@@ -23,139 +23,58 @@ export default function StreamGovernancePage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center py-6 justify-center overflow-hidden">
-        {/* Animated background elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-6xl mx-auto text-center">
-            {/* Badge */}
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium mb-8">
-              <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-              Trusted by 50,000+ data teams worldwide
-            </div>
-
-            {/* Main headline */}
-            <h1 className="text-4xl md:text-7xl font-bold text-white mb-5 leading-tight">
-              Stream data with
-              <br />
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                complete confidence
-              </span>
-            </h1>
-
-            {/* Subheadline */}
-            <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-              The only platform that combines real-time streaming, governance, and quality monitoring in one unified
-              solution. Built by the creators of Apache Kafka®.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-              <Button
-                size="lg"
-                className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full shadow-2xl"
-              >
-                Start Free Trial
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-full backdrop-blur-sm bg-transparent"
-              >
-                Watch Demo
-                <svg className="ml-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M8 5v10l8-5-8-5z" />
-                </svg>
-              </Button>
-            </div>
-
-            {/* Trust indicators */}
-            <div className="mb-16">
-              <p className="text-gray-400 text-sm mb-6">Available on all major cloud platforms</p>
-              <div className="flex items-center justify-center gap-12 opacity-60">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-gradient-to-r from-orange-400 to-yellow-500 rounded-lg"></div>
-                  <span className="text-white font-medium">AWS</span>
+      <section className="py-20 lg:py-32">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <Badge className="bg-blue-600/20 text-blue-300 border-blue-600/30">Stream Governance Platform</Badge>
+                <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight">
+                  Discover, understand, and{" "}
+                  <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    trust your data streams
+                  </span>
+                </h1>
+                <p className="text-xl text-gray-300 leading-relaxed">
+                  Build confidence in your streaming data and catalogs with comprehensive lineage tracking, real-time
+                  quality monitoring, and automated governance tools. Ensure data reliability at scale.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8">
+                  Start Free Trial
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/20 text-white hover:bg-white/10 bg-transparent"
+                >
+                  Watch Demo
+                </Button>
+              </div>
+              <div className="flex items-center space-x-8 text-sm text-gray-400">
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="w-4 h-4 text-green-400" />
+                  <span>No credit card required</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg"></div>
-                  <span className="text-white font-medium">Google Cloud</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg"></div>
-                  <span className="text-white font-medium">Azure</span>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="w-4 h-4 text-green-400" />
+                  <span>14-day free trial</span>
                 </div>
               </div>
             </div>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-all duration-300">
-                <div className="flex items-center justify-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center">
-                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                </div>
-                <h3 className="text-3xl font-bold text-white mb-3">99.99%</h3>
-                <p className="text-gray-300">Platform uptime with enterprise SLA</p>
-              </div>
-
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-all duration-300">
-                <div className="flex items-center justify-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl flex items-center justify-center">
-                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
-                    </svg>
-                  </div>
-                </div>
-                <h3 className="text-3xl font-bold text-white mb-3">5 Trillion</h3>
-                <p className="text-gray-300">Messages processed daily across all customers</p>
-              </div>
-
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-all duration-300">
-                <div className="flex items-center justify-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center">
-                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-                    </svg>
-                  </div>
-                </div>
-                <h3 className="text-3xl font-bold text-white mb-3">&lt;10ms</h3>
-                <p className="text-gray-300">Average end-to-end latency at scale</p>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl blur-3xl"></div>
+              <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-6">
+                <Image
+                  src="https://images.ctfassets.net/8vofjvai1hpv/518LlPSQHOYEjWBcuO8vQn/defdd4814fe93aa4c60f834c1f00d940/stream-hero-v2-1-min.png?w=1350&h=1116&q=90&fm=webp&bg=transparent"
+                  alt="Stream Governance Dashboard"
+                  width={600}
+                  height={400}
+                  className="rounded-lg"
+                />
               </div>
             </div>
-
-            {/* Bottom CTA */}
-            <div className="mt-16 text-center">
-              <p className="text-gray-400 text-sm mb-4">
-                Join industry leaders who trust StreamFlow for mission-critical data streaming
-              </p>
-              <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
-                <CheckCircle className="w-4 h-4 text-green-400" />
-                <span>No credit card required</span>
-                <span className="mx-2">•</span>
-                <CheckCircle className="w-4 h-4 text-green-400" />
-                <span>14-day free trial</span>
-                <span className="mx-2">•</span>
-                <CheckCircle className="w-4 h-4 text-green-400" />
-                <span>Setup in minutes</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-bounce"></div>
           </div>
         </div>
       </section>
@@ -318,7 +237,7 @@ export default function StreamGovernancePage() {
             </Card>
           </div>
 
-          
+         
         </div>
       </section>
 
