@@ -1,5 +1,20 @@
 "use client";
-import { Clock, Download, Link2, Play } from "lucide-react";
+import {
+  Building2,
+  Calendar,
+  Clock,
+  Database,
+  Download,
+  ExternalLink,
+  MapPin,
+  Play,
+  Radio,
+  Search,
+  Truck,
+  Tv,
+} from "lucide-react";
+import { Users, Cloud } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -10,22 +25,17 @@ import {
 import Image from "next/image";
 import { JSX, useState } from "react";
 import Link from "next/link";
-import { RefreshCw, Server, Unlock } from "lucide-react";
+import { Server } from "lucide-react";
 import {
   Card,
   CardContent,
   CardDescription,
+  CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { ArrowRight, GitFork } from "lucide-react";
-import {
-  Lightbulb,
-  Shield,
-  Building,
-  MapIcon as City,
-  Cloud,
-  Share2,
-} from "lucide-react";
+import { Shield, Share2 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 interface UseCase {
   icon: JSX.Element;
@@ -36,77 +46,118 @@ interface UseCase {
 
 const useCases_Card: UseCase[] = [
   {
-    icon: <Lightbulb className="w-10 h-10 text-blue-600 mb-4" />,
-    title: "Actionable Intelligence with AI",
+    icon: <Search className="w-10 h-10 text-blue-600 mb-4" />,
+    title: "Real-time Insights on Edge Network Devices",
     linkText: "Learn More",
     linkHref: "#",
   },
   {
-    icon: <Shield className="w-10 h-10 text-blue-600 mb-4" />,
-    title: "Enhanced National Cybersecurity",
+    icon: <Building2 className="w-10 h-10 text-blue-600 mb-4" />,
+    title: "Smart Cities",
     linkText: "Learn More",
     linkHref: "#",
   },
   {
-    icon: <Building className="w-10 h-10 text-blue-600 mb-4" />,
-    title: "DoD Software Factories",
-    linkText: "Learn More",
-    linkHref: "#",
-  },
-  {
-    icon: <City className="w-10 h-10 text-blue-600 mb-4" />,
-    title: "Smart City Applications",
-    linkText: "Learn More",
-    linkHref: "#",
-  },
-  {
-    icon: <Cloud className="w-10 h-10 text-blue-600 mb-4" />,
+    icon: <Database className="w-10 h-10 text-blue-600 mb-4" />,
     title: "IoT Data Integration",
     linkText: "Learn More",
     linkHref: "#",
   },
   {
-    icon: <Share2 className="w-10 h-10 text-blue-600 mb-4" />,
-    title: "Secure Data Exchange",
+    icon: <Shield className="w-10 h-10 text-blue-600 mb-4" />,
+    title: "Build Private Wireless Networks",
+    linkText: "Learn More",
+    linkHref: "#",
+  },
+  {
+    icon: <Tv className="w-10 h-10 text-blue-600 mb-4" />,
+    title: "TV Network Automation",
+    linkText: "Learn More",
+    linkHref: "#",
+  },
+  {
+    icon: <Truck className="w-10 h-10 text-blue-600 mb-4" />,
+    title: "Real-Time Field Service Optimization",
     linkText: "Learn More",
     linkHref: "#",
   },
 ];
 const whyDataStreaming = [
   {
-    title:
-      "Bridging the Data Divide: How Confluent and DataBricks Are Unlocking Real-Time AI",
+    title: "Good Teams Manage Kafka - Efficient Teams Use Confluent",
     description:
-      "This lays the foundation for AI by connecting real-time pipelines and making data fully operational.",
-    cta: "Read Blog",
-    href: "#",
-    image: "https://cdn-icons-png.flaticon.com/512/1046/1046844.png", // AI icon
-  },
-  {
-    title: "The Ongoing Disruption of Retail",
-    description:
-      "Learn how your organization can better support retail transformation using data streaming and customer insights.",
-    cta: "Download eBook",
-    href: "#",
-    image: "https://cdn-icons-png.flaticon.com/512/3043/3043855.png", // Shopping/Retail
-  },
-  {
-    title: "Good Teams Manage Kafka – Efficient Teams Use Confluent",
-    description:
-      "Cut down costs, enhance performance, and speed up innovation with Confluent.",
+      "Learn why telecom companies trust Confluent's cloud-native and fully managed data streaming platform to reduce development & operational costs, infrastructure spend, and downtime risks.",
     cta: "Learn More",
     href: "#",
     image: "https://cdn-icons-png.flaticon.com/512/1149/1149168.png", // Team icon
   },
   {
-    title: "Conquer Your Data Mess With Universal Data Products",
+    title:
+      "How DISH Wireless Built a 5G Network With Cloud-Native Data Streaming",
     description:
-      "Build reusable data products and pipelines across teams with reliability and speed.",
-    cta: "Download eBook",
+      "Find out how DISH Wireless uses a data mesh architecture to revolutionize its data strategy, enabling scalable and real-time data sharing across teams and systems. You'll also learn how data mesh can drive innovation and efficiency in modern, data-driven businesses.",
+    cta: "Read the Blog",
     href: "#",
-    image: "https://cdn-icons-png.flaticon.com/512/4380/4380898.png", // Data sync icon
+    image: "https://cdn-icons-png.flaticon.com/512/2942/2942813.png", // 5G/Network icon
+  },
+  {
+    title:
+      "Bridging the Data Divide: How Confluent and DataBricks Are Unlocking Real-Time AI",
+    description:
+      "The key to making AI truly operational is real-time, trusted data products. Learn how the Confluent and Databricks partnership enables enterprises in telecom and beyond to fully operationalize AI.",
+    cta: "Read Blog",
+    href: "#",
+    image: "https://cdn-icons-png.flaticon.com/512/1046/1046844.png", // AI icon
+  },
+  {
+    title:
+      "From Telco to TechCo? How Telcos Are Shaping the Future of Communication with Data Streaming",
+    description:
+      "This panel of industry experts from Telefonica, Germany, TM Forum, Deloitte, and Proximus discuss their everyday usage of data streaming within their companies, how they got there, and what use cases they will be focussing on further down the road.",
+    cta: "Watch Webinar",
+    href: "#",
+    image: "https://cdn-icons-png.flaticon.com/512/3178/3178158.png", // Communication/Telecom icon
   },
 ];
+const webinars = [
+  {
+    title:
+      "Apache Flink on AWS: Building Data Streaming Enterprise Applications",
+    description:
+      "Discover how to build scalable data streaming applications using Apache Flink on AWS infrastructure for enterprise-grade solutions.",
+    date: "Dec 15, 2024",
+    duration: "45 min",
+    cta: "Watch Now",
+    href: "#",
+    image:
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=300&fit=crop",
+    badge: "Popular",
+  },
+  {
+    title: "Real-time Analytics and Data Mesh Governance Strategies",
+    description:
+      "Learn advanced strategies for implementing real-time analytics while maintaining proper data mesh governance across your organization.",
+    date: "Jan 8, 2025",
+    duration: "50 min",
+    cta: "Register",
+    href: "#",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop",
+    badge: "Upcoming",
+  },
+  {
+    title: "Zero Network and Data Mesh Solutions 2025",
+    description:
+      "Explore cutting-edge zero network architectures and their integration with modern data mesh solutions for enhanced security and performance.",
+    date: "Jan 22, 2025",
+    duration: "40 min",
+    cta: "Learn More",
+    href: "#",
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=300&fit=crop",
+  },
+];
+
 const TeleCommunicationsPage = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
@@ -136,7 +187,8 @@ const TeleCommunicationsPage = () => {
                 <Link
                   target="_blank"
                   href={
-                   "https://www.confluent.io/resources/ebook/streaming-use-case-guide/" }
+                    "https://www.confluent.io/resources/ebook/streaming-use-case-guide/"
+                  }
                 >
                   <Button
                     size="lg"
@@ -147,10 +199,12 @@ const TeleCommunicationsPage = () => {
                   </Button>
                 </Link>
                 <Link
-                  href={"https://www.confluent.io/resources/online-talk/data-streaming-in-real-life-telecom-sector"}
+                  href={
+                    "https://www.confluent.io/resources/online-talk/data-streaming-in-real-life-telecom-sector"
+                  }
                   className="text-blue-500 underline text-lg px-3"
                 >
-                 Watch Webinar
+                  Watch Webinar
                 </Link>
               </div>
             </div>
@@ -193,7 +247,7 @@ const TeleCommunicationsPage = () => {
         </div>
       </section>
 
-  <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-12">
             What&apos;s Trending
@@ -207,7 +261,7 @@ const TeleCommunicationsPage = () => {
               </p>
               <Card className="border shadow-lg rounded-lg overflow-hidden">
                 <Image
-                  src="https://images.ctfassets.net/8vofjvai1hpv/1oEGicSwiibUJoED2WhvSQ/3d96a997d9f511184e6e9b38663e0d0d/image_290.png?w=576&h=301&q=90&fm=webp&bg=transparent"
+                  src="https://images.ctfassets.net/8vofjvai1hpv/4d0gOZPSlPrW1sS9AoLbga/3465a855bb15a342303d89289d3d5e3e/Industry-Telecom-1200x628-min.png?w=992&h=519&q=90&fm=webp&bg=transparent"
                   alt="Efficiently Modernizing Government Data Environments"
                   width={500}
                   height={300}
@@ -215,23 +269,27 @@ const TeleCommunicationsPage = () => {
                 />
                 <CardContent className="p-6 space-y-6">
                   <h3 className="text-2xl font-bold text-gray-900">
-                    Efficiently Modernizing Government Data Environments
+                    Concepts, Use Cases, Industry Stories: The Ultimate Data
+                    Streaming Guide
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Federal agencies traditionally allocate 80% of IT budgets to
-                    operations and maintenance, hindering innovation and
-                    modernization efforts despite increasing demands for
-                    efficiency and ROI. Learn how Confluent enables efficient
-                    agency modernization and interoperability, allowing agencies
-                    to minimize O&M costs while maximizing ROI and fostering
-                    innovation.
+                    Written by Confluent Field CTO Kai Waehner, this book
+                    showcases real-world success stories that highlight the
+                    power of data streaming and event-driven architectures. With
+                    a dedicated chapter on the telco industry, it offers
+                    practical insights for unifying operational and analytical
+                    data to build real-time, reliable data products that drive
+                    industry innovation.
                   </p>
-                  <Link href="#" passHref>
+                  <Link
+                    href="https://www.confluent.io/resources/ebook/the-ultimate-data-streaming-guide-telecom-edition/"
+                    passHref
+                  >
                     <Button
                       variant="link"
                       className="text-blue-600 hover:text-blue-700 p-0 h-auto font-semibold"
                     >
-                      Read Brief{" "}
+                      Download eBook
                       <ArrowRight className="ml-2 h-4 w-4 inline-block" />
                     </Button>
                   </Link>
@@ -251,15 +309,18 @@ const TeleCommunicationsPage = () => {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-lg font-bold text-gray-900 mb-2">
-                      Reducing Kafka Cost of Ownership to Scale Data
-                      Modernization
+                      Unlocking the Edge: Data Streaming Goes Where You Go with
+                      Confluent
                     </h4>
-                    <Link href="#" passHref>
+                    <Link
+                      href="https://www.confluent.io/blog/data-streaming-at-the-edge/"
+                      passHref
+                    >
                       <Button
                         variant="link"
                         className="text-blue-600 hover:text-blue-700 p-0 h-auto font-semibold"
                       >
-                        Download Datasheet{" "}
+                        Read Blog
                         <ArrowRight className="ml-2 h-4 w-4 inline-block" />
                       </Button>
                     </Link>
@@ -272,14 +333,19 @@ const TeleCommunicationsPage = () => {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-lg font-bold text-gray-900 mb-2">
-                      Data in Motion Powers the Next Generation of Government
+                      British Telecom: Using Kafka to Assure TV Signals Reach
+                      the Transmitters
                     </h4>
-                    <Link href="#" passHref>
+                    <Link
+                      href="https://www.confluent.io/events/kafka-summit-london-2024/the-show-must-go-on-using-kafka-to-assure-tv-signals-reach-the-transmitters/"
+                      passHref
+                    >
                       <Button
                         variant="link"
                         className="text-blue-600 hover:text-blue-700 p-0 h-auto font-semibold"
                       >
-                        Download Datasheet{" "}
+                        {" "}
+                        Watch Recording{" "}
                         <ArrowRight className="ml-2 h-4 w-4 inline-block" />
                       </Button>
                     </Link>
@@ -292,9 +358,12 @@ const TeleCommunicationsPage = () => {
                   </div>
                   <div className="flex-1">
                     <h4 className="text-lg font-bold text-gray-900 mb-2">
-                      Building Trust in AI Means Building Trust in Data
+                      Making Predictive Customer Support a Reality for Telcos
                     </h4>
-                    <Link href="#" passHref>
+                    <Link
+                      href="https://www.confluent.io/blog/predictive-customer-support/"
+                      passHref
+                    >
                       <Button
                         variant="link"
                         className="text-blue-600 hover:text-blue-700 p-0 h-auto font-semibold"
@@ -311,120 +380,6 @@ const TeleCommunicationsPage = () => {
         </div>
       </section>
 
-
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
-              Efficiently Modernize Your Agency&apos;s Data Architecture With
-              Confluent
-            </h1>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Over the past decade,{" "}
-              <span className="text-blue-600 font-semibold">Apache Kafka®</span>{" "}
-              has proven to be the best approach for organizations looking to
-              become more data driven, from modernizing legacy systems to
-              integrating data from the edge to the cloud and back. In the
-              public sector, Kafka allows agencies to readily process and derive
-              value from their data—paving the path toward real-time data
-              analytics, logistics, and zero-trust cybersecurity solutions. But
-              using an open source distribution of Kafka comes with
-              significant—and often open-ended—operations and maintenance (O&M)
-              costs that today&apos;s agencies can&apos;t afford.
-            </p>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              With its robust data streaming platform—built around an
-              enterprise-grade distribution of Kafka—Confluent enables
-              government agencies to bridge the gap between legacy and modern
-              data architecture.
-            </p>
-          </div>
-          <div className="flex justify-center lg:justify-end">
-            <Image
-              src="https://images.ctfassets.net/8vofjvai1hpv/1WT2xJy08PRxgTFTacXKPI/3c7fc7b76cd5ac6feb2ca44ed7d219c8/Supreme-C.webp?w=1200&h=675&q=90&fm=webp&bg=transparent"
-              alt="Classical government building"
-              width={450}
-              height={450}
-              className="rounded-lg h-96 shadow-lg object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center lg:text-left">
-            With the Confluent data streaming platform, you can:
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="border-0 shadow-sm bg-white rounded-lg p-6">
-              <CardContent className="p-0 space-y-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                  <RefreshCw className="h-6 w-6 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">
-                  Reduce Kafka O&M Costs with a Production-Ready Platform
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Save on your total cost of ownership with enterprise-grade
-                  features to monitor, manage, and optimize Kafka clusters.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-sm bg-white rounded-lg p-6">
-              <CardContent className="p-0 space-y-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                  <Server className="h-6 w-6 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">
-                  Deploy an Enterprise-Grade Data Architecture and Build Modern
-                  Applications
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Improve your data architecture&apos;s scalability and
-                  resilience to handle increasing data volumes and ensure high
-                  availability of mission-critical data.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-sm bg-white rounded-lg p-6">
-              <CardContent className="p-0 space-y-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                  <Unlock className="h-6 w-6 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">
-                  Unlock Data Value from the Tactical Edge
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Unlock your data&apos;s value by facilitating its seamless
-                  transfer between edge, on-premises, and managed environments,
-                  and avoid lock-in on proprietary architectures.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-sm bg-white rounded-lg p-6">
-              <CardContent className="p-0 space-y-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                  <Link2 className="h-6 w-6 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">
-                  Bridge the Gap Between Legacy and Modern Data Approaches
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Use a wide range of pre-built connectors to integrate Kafka
-                  with various data sources, drastically reducing time and
-                  effort required to build data pipelines.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-    
       {/* CTA Section */}
       <section className="bg-blue-900 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -498,50 +453,144 @@ const TeleCommunicationsPage = () => {
         </div>
       </section>
 
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Unlimited Use Cases for Financial Services
-          </h1>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-3 rounded-full transition-all hover:scale-105 shadow-lg mb-16">
-            Discover Now
-          </Button>
+      {/* Webinars Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-blue-100 text-blue-800 border-blue-200">
+              <Calendar className="w-4 h-4 mr-2" />
+              Educational Content
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Expert Webinars
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Join industry experts and learn from real-world implementations of
+              data streaming technologies
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {useCases_Card?.map((item, index) => (
-              <div
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {webinars.map((webinar, index) => (
+              <Card
                 key={index}
-                className="flex flex-col items-center text-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition"
+                className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1"
               >
-                {item.icon}
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {item.title}
-                </h3>
-                <Link
-                  href={item.linkHref}
-                  className="text-blue-600 hover:text-blue-800 text-sm flex items-center group"
-                >
-                  {item.linkText}{" "}
-                  <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={webinar.image}
+                    alt={webinar.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  {webinar.badge && (
+                    <Badge className="absolute top-4 left-4 bg-blue-600 text-white border-0">
+                      {webinar.badge}
+                    </Badge>
+                  )}
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <div className="flex items-center gap-4 text-sm">
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        {webinar.date}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Play className="w-4 h-4" />
+                        {webinar.duration}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                    {webinar.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-gray-600 mb-6 leading-relaxed">
+                    {webinar.description}
+                  </CardDescription>
+                  <Button className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white transition-all duration-300">
+                    {webinar.cta}
+                    <ExternalLink className="w-4 h-4 ml-2" />
+                  </Button>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
+      {/* DISH Wireless Spotlight */}
+      <section className="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop')] opacity-10 bg-cover bg-center"></div>
+        <div className="relative container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center">
+                  <Radio className="w-8 h-8 text-blue-600" />
+                </div>
+                <div>
+                  <Badge className="mb-2 bg-blue-500/20 text-blue-100 border-blue-400/30">
+                    Customer Success Story
+                  </Badge>
+                  <h2 className="text-3xl md:text-4xl font-bold">
+                    DISH Wireless
+                  </h2>
+                </div>
+              </div>
+            </div>
+
+            <blockquote className="text-xl md:text-2xl font-medium mb-8 leading-relaxed text-blue-100">
+              We are taking advantage of technologies like Kafka, and other
+              types of data streaming and analytics technologies, supported by
+              API, cloud-native platforms to be able to serve 100 million people
+              and just give them a completely revolutionary and agile
+              experience.
+            </blockquote>
+
+            <div className="flex flex-wrap gap-4 mb-8">
+              <Badge className="bg-white/10 text-white border-white/20">
+                5G Network
+              </Badge>
+              <Badge className="bg-white/10 text-white border-white/20">
+                Cloud-Native
+              </Badge>
+              <Badge className="bg-white/10 text-white border-white/20">
+                Data Streaming
+              </Badge>
+              <Badge className="bg-white/10 text-white border-white/20">
+                Real-time Analytics
+              </Badge>
+            </div>
+
+            <Button
+              size="lg"
+              className="bg-white text-blue-900 hover:bg-blue-50 transition-colors duration-300"
+            >
+              <Download className="w-5 h-5 mr-2" />
+              Read Case Study
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* use cases section  */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 md:max-w-xl">
-            Unlimited Use Cases for Public Sector
+            Unlimited Use Cases for Telecommunications
           </h1>
           <p className="text-gray-600 mb-8 md:max-w-2xl">
-            Public sector agencies are leveraging data streaming and real-time
-            processing to bring their most mission-critical applications and
-            services to market faster than ever. By leveraging a complete data
-            streaming platform, agencies can improve inter-agency collaboration,
-            enhance cybersecurity measures, and ensure timely responses to
-            public needs. Explore the following use cases to learn more.
+            With a data streaming platform, telecommunication providers harness
+            the value of real-time data, from numerous sources streaming, to
+            build rich digital front-end customer experiences and transition to
+            real-time backend operations. Explore the use cases to unlock new
+            revenue streams, deliver personalized customer experiences, limit
+            churn, and reduce operating expenses with a future-proof data
+            architecture built to process real-time data at scale.
           </p>
           <Button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-3 rounded-full transition-all hover:scale-105 shadow-lg mb-16">
             Discover More
@@ -569,83 +618,140 @@ const TeleCommunicationsPage = () => {
         </div>
       </section>
 
-      {/* Upcoming Data Streaming Events Section */}
+      {/* Upcoming Data Streaming Events */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-12">
             Upcoming Data Streaming Events for Public Sector
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Event 1 */}
-            <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0"
-                alt="Data Streaming World Tour"
-                width={400}
-                height={200}
-                className="w-full h-48 object-cover"
-              />
+            {/* Event 1 - Current New Orleans */}
+            <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div className="relative h-48 bg-gradient-to-br from-blue-600 to-blue-800 overflow-hidden">
+                <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center text-white">
+                    <Users className="w-16 h-16 mx-auto mb-4 opacity-80" />
+                    <div className="text-2xl font-bold">Conference</div>
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-white bg-opacity-20 backdrop-blur-sm rounded-full p-2">
+                  <MapPin className="w-5 h-5 text-white" />
+                </div>
+              </div>
               <CardContent className="p-6">
-                <CardTitle className="text-xl font-bold text-gray-900 mb-2">
-                  Current new orleans
+                <div className="flex items-center gap-2 mb-3">
+                  <Calendar className="w-4 h-4 text-blue-600" />
+                  <span className="text-sm text-gray-500">Upcoming Event</span>
+                </div>
+                <CardTitle className="text-xl font-bold text-gray-900 mb-3">
+                  Current New Orleans
                 </CardTitle>
-                <CardDescription className="text-gray-600">
+                <CardDescription className="text-gray-600 mb-4 leading-relaxed">
                   Join us for the opportunity to network with your peers and
                   ecosystem partners, hear directly from Confluent leaders,
                   learn from our team of Apache Kafka® experts, and roll up your
                   sleeves in interactive demonstrations and hands-on labs.
                 </CardDescription>
+                <div className="flex items-center text-blue-600 hover:text-blue-700 cursor-pointer">
+                  <span className="text-sm font-medium">Learn More</span>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
               </CardContent>
             </Card>
 
-            {/* Event 2 */}
-            <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src="https://images.unsplash.com/photo-1522199710521-72d69614c702"
-                alt="Current New Orleans"
-                width={400}
-                height={200}
-                className="w-full h-48 object-cover"
-              />
+            {/* Event 2 - Current New Orleans Call for Papers */}
+            <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div className="relative h-48 bg-gradient-to-br from-purple-600 to-purple-800 overflow-hidden">
+                <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center text-white">
+                    <Database className="w-16 h-16 mx-auto mb-4 opacity-80" />
+                    <div className="text-2xl font-bold">Call for Papers</div>
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-white bg-opacity-20 backdrop-blur-sm rounded-full p-2">
+                  <Clock className="w-5 h-5 text-white" />
+                </div>
+              </div>
               <CardContent className="p-6">
-                <CardTitle className="text-xl font-bold text-gray-900 mb-2">
+                <div className="flex items-center gap-2 mb-3">
+                  <Calendar className="w-4 h-4 text-purple-600" />
+                  <span className="text-sm text-gray-500">
+                    Deadline: June 15th
+                  </span>
+                </div>
+                <CardTitle className="text-xl font-bold text-gray-900 mb-3">
                   Current New Orleans
                 </CardTitle>
-                <CardDescription className="text-gray-600">
+                <CardDescription className="text-gray-600 mb-4 leading-relaxed">
                   Looking for innovative ideas or practical insights in data
                   streaming? Or have expertise you like to share with the
                   community? Then get ready — call for papers is open through
                   June 15th, and you can still register to be the first to know.
                 </CardDescription>
+                <div className="flex items-center text-purple-600 hover:text-purple-700 cursor-pointer">
+                  <span className="text-sm font-medium">Submit Paper</span>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
               </CardContent>
             </Card>
 
-            {/* Event 3 */}
-            <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src="https://images.ctfassets.net/8vofjvai1hpv/3oSK7FPsxeIgg7PbC8vhkw/3e466154861ed54e374670d10f1fc6d4/data-flow-triggers-email-notification-with-flink-and-sendgrid.png"
-                alt="Bringing Stream Processing to Private Clouds"
-                width={400}
-                height={200}
-                className="w-full h-48 object-cover"
-              />
+            {/* Event 3 - Flink Stream Processing Webinar */}
+            <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div className="relative h-48 bg-gradient-to-br from-green-600 to-green-800 overflow-hidden">
+                <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center text-white">
+                    <Cloud className="w-16 h-16 mx-auto mb-4 opacity-80" />
+                    <div className="text-2xl font-bold">Webinar</div>
+                  </div>
+                </div>
+                <div className="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-medium">
+                  Technical
+                </div>
+              </div>
               <CardContent className="p-6">
-                <CardTitle className="text-xl font-bold text-gray-900 mb-2">
+                <div className="flex items-center gap-2 mb-3">
+                  <Calendar className="w-4 h-4 text-green-600" />
+                  <span className="text-sm text-gray-500">Online Event</span>
+                </div>
+                <CardTitle className="text-xl font-bold text-gray-900 mb-3">
                   Bringing Stream Processing with Flink to On-Prem & Private
                   Clouds
                 </CardTitle>
-                <CardDescription className="text-gray-600">
+                <CardDescription className="text-gray-600 mb-4 leading-relaxed">
                   Streaming processing is essential for powering real-time
                   applications that are in use across retail and e-commerce.
                   Join this webinar to learn how Confluent Data Streaming
                   Platform brings stream processing to on-prem.
                 </CardDescription>
+                <div className="flex items-center text-green-600 hover:text-green-700 cursor-pointer">
+                  <span className="text-sm font-medium">Register Now</span>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
               </CardContent>
             </Card>
           </div>
+
+          {/* Additional CTA Section */}
+          <div className="mt-12 text-center">
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Dont Miss Out on Future Events
+              </h3>
+              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+                Stay updated with the latest data streaming events, workshops,
+                and webinars tailored for public sector organizations.
+              </p>
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200 inline-flex items-center gap-2">
+                Subscribe to Updates
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
         </div>
       </section>
-
       {/* Migration Banner */}
       <section className="py-10">
         <div className="max-w-6xl mx-auto px-4">

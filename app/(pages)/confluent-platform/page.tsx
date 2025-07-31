@@ -3,10 +3,6 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import {
   ArrowRight,
-  Server,
-  Code,
-  Shield,
-  Headphones,
   PlayCircle,
 } from "lucide-react";
 import {

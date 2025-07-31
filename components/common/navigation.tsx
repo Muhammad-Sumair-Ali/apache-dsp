@@ -259,23 +259,23 @@ const ResourcesDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
       href: "/glossary",
     },
     { icon: Shield, title: "Professional Services", description: "Expert guidance and support", href: "/services" },
-    { icon: Headphones, title: "Contact Support", description: "Get help from our support team", href: "/support" },
+    { icon: Headphones, title: "Contact Support", description: "Get help from our support team", href: "https://support.confluent.io/?_gl=1*1q5b2yo*_gcl_au*MjAyNDEyNDI1My4xNzUzNzk4NTU4*_ga*MTYxODE0MDMwNC4xNzUzNzk4NTU5*_ga_D2D3EGKSGD*czE3NTM5NDk1NzYkbzE0JGcxJHQxNzUzOTUzNTIwJGo1OSRsMCRoMA..&_ga=2.94638428.1597049125.1753798559-1618140304.1753798559" },
   ]
   const developerResources = [
     {
       icon: Code,
       title: "Confluent Developer",
       description: "Courses, tutorials and language guides",
-      href: "/developer",
+      href: "https://developer.confluent.io/?_gl=1*ug79g0*_gcl_au*MjAyNDEyNDI1My4xNzUzNzk4NTU4*_ga*MTYxODE0MDMwNC4xNzUzNzk4NTU5*_ga_D2D3EGKSGD*czE3NTM5NDk1NzYkbzE0JGcxJHQxNzUzOTUzNTIwJGo1OSRsMCRoMA..&_ga=2.90446298.1597049125.1753798559-1618140304.1753798559",
     },
-    { icon: FileText, title: "Documentation", description: "Guides, tutorials, API and CLI references", href: "/docs" },
+    { icon: FileText, title: "Documentation", description: "Guides, tutorials, API and CLI references", href: "https://docs.confluent.io/?_gl=1*4ze00b*_gcl_au*MjAyNDEyNDI1My4xNzUzNzk4NTU4*_ga*MTYxODE0MDMwNC4xNzUzNzk4NTU5*_ga_D2D3EGKSGD*czE3NTM5NDk1NzYkbzE0JGcxJHQxNzUzOTUzOTc2JGo2MCRsMCRoMA..&_ga=2.90446298.1597049125.1753798559-1618140304.1753798559" },
     {
       icon: GraduationCap,
       title: "Training & Certification",
       description: "Start learning for free from Confluent",
       href: "/training",
     },
-    { icon: Users, title: "Developer Meetups", description: "Join a global community of developers", href: "/meetups" },
+    { icon: Users, title: "Developer Meetups", description: "Join a global community of developers", href: "https://developer.confluent.io/meetups/" },
   ]
   return (
     <div
