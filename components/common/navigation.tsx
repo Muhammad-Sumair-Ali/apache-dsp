@@ -1,15 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
+import { useState } from "react";
 import {
   ChevronDown,
   Menu,
   X,
-  Search,
-  User,
   Users,
   Building2,
   FileText,
@@ -41,9 +39,9 @@ import {
   Banknote,
   Brain,
   Hexagon,
-} from "lucide-react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button" // Corrected import path for Button
+} from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button"; // Corrected import path for Button
 
 // Dropdown data configuration
 const dropdownData = {
@@ -109,46 +107,74 @@ const dropdownData = {
             href: "/shift-left-analytics",
             icon: GitBranch,
             title: "Shift Left Analytics",
-            description: "Clean and govern data at the source and turn topics into Iceberg or Delta Lake tables",
+            description:
+              "Clean and govern data at the source and turn topics into Iceberg or Delta Lake tables",
           },
           {
             href: "/generative-ai",
             icon: Brain,
             title: "Generative AI",
-            description: "Build RAG and agentic AI use cases with real-time, contextual and trustworthy data",
+            description:
+              "Build RAG and agentic AI use cases with real-time, contextual and trustworthy data",
           },
           {
             href: "/microservices",
             icon: Hexagon,
             title: "Event-Driven Microservices",
-            description: "Learn to build event-driven microservices applications with data streaming",
+            description:
+              "Learn to build event-driven microservices applications with data streaming",
           },
           {
             href: "/use-case",
             icon: Building2,
             title: "Reference Architectures",
-            description: "Discover best practices for common data streaming use cases",
+            description:
+              "Discover best practices for common data streaming use cases",
           },
         ],
       },
       {
         title: "INDUSTRIES",
         items: [
-          { href: "/industry-solutions/financial-services", icon: Banknote, title: "Financial Services" },
-          { href: "/industry-solutions/retail-ecommerce", icon: ShoppingCart, title: "Retail & eCommerce" },
-          { href: "/industry-solutions/manufacturing", icon: Factory, title: "Manufacturing & Automotive" },
-          { href: "/industry-solutions/public-sector", icon: Landmark, title: "Public Sector" },
-          { href: "/industry-solutions/telecommunications", icon: Phone, title: "Telecommunications" },
-          { href: "/industry-solutions/all-solutions", icon: ArrowRight, title: "See All Solutions & Industries" },
+          {
+            href: "/industry-solutions/financial-services",
+            icon: Banknote,
+            title: "Financial Services",
+          },
+          {
+            href: "/industry-solutions/retail-ecommerce",
+            icon: ShoppingCart,
+            title: "Retail & eCommerce",
+          },
+          {
+            href: "/industry-solutions/manufacturing",
+            icon: Factory,
+            title: "Manufacturing & Automotive",
+          },
+          {
+            href: "/industry-solutions/public-sector",
+            icon: Landmark,
+            title: "Public Sector",
+          },
+          {
+            href: "/industry-solutions/telecommunications",
+            icon: Phone,
+            title: "Telecommunications",
+          },
+          {
+            href: "/industry-solutions/all-solutions",
+            icon: ArrowRight,
+            title: "See All Solutions & Industries",
+          },
         ],
       },
     ],
   },
-}
+};
 
 // Platform dropdown component (special layout)
 const PlatformDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
-  if (!isActive) return null
+  if (!isActive) return null;
   return (
     <div
       className="absolute top-full left-0 mt-1 w-[750px] bg-white rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden"
@@ -160,7 +186,11 @@ const PlatformDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
         <div className="p-6 border-r border-gray-100">
           <div className="space-y-4">
             {[
-              { href: "/platform-overview", icon: Network, title: "Platform Overview" },
+              {
+                href: "/platform-overview",
+                icon: Network,
+                title: "Platform Overview",
+              },
               {
                 href: "/data-streaming",
                 icon: Workflow,
@@ -179,8 +209,17 @@ const PlatformDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
                 title: "Stream Governance",
                 description: "Democratize access to high-quality data",
               },
-              { href: "/stream-processing", icon: Activity, title: "Transform, analyze, and act on real-time data" },
-              { href: "/tableflow", icon: Table, title: "Tableflow", description: "Topics to tables in a few clicks" },
+              {
+                href: "/stream-processing",
+                icon: Activity,
+                title: "Transform, analyze, and act on real-time data",
+              },
+              {
+                href: "/tableflow",
+                icon: Table,
+                title: "Tableflow",
+                description: "Topics to tables in a few clicks",
+              },
             ].map((item) => (
               <DropdownItem key={item.title} {...item} />
             ))}
@@ -188,26 +227,31 @@ const PlatformDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
         </div>
         {/* Deployment Options */}
         <div className="p-6 border-r border-gray-100">
-          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">DEPLOYMENT OPTIONS</h4>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
+            DEPLOYMENT OPTIONS
+          </h4>
           <div className="space-y-4">
             {[
               {
                 href: "/confluent-cloud",
                 icon: Cloud,
                 title: "Confluent Cloud",
-                description: "Stream smarter with our fully managed, cloud-native Apache Kafka® service",
+                description:
+                  "Stream smarter with our fully managed, cloud-native Apache Kafka® service",
               },
               {
                 href: "/confluent-platform",
                 icon: Server,
                 title: "Confluent Platform",
-                description: "Run and manage our complete data streaming platform on-premises",
+                description:
+                  "Run and manage our complete data streaming platform on-premises",
               },
               {
                 href: "https://www.warpstream.com/bring-your-own-cloud-kafka-data-streaming",
                 icon: Zap,
                 title: "WarpStream",
-                description: "Deploy a Kafka-compatible data streaming platform in your private cloud",
+                description:
+                  "Deploy a Kafka-compatible data streaming platform in your private cloud",
                 external: true,
               },
             ].map((item) => (
@@ -225,8 +269,9 @@ const PlatformDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
             </div>
             <h3 className="font-bold text-gray-900 mb-2">Demo Center</h3>
             <p className="text-sm text-gray-600 mb-4">
-              Wherever you are in your data streaming journey, you all find the explainer videos and tutorials you need
-              to advance your skills here.
+              Wherever you are in your data streaming journey, you all find the
+              explainer videos and tutorials you need to advance your skills
+              here.
             </p>
             <Link href="/demo-center">
               <Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-lg transition-colors">
@@ -237,12 +282,12 @@ const PlatformDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 // Resources dropdown component (special layout)
 const ResourcesDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
-  if (!isActive) return null
+  if (!isActive) return null;
   const generalResources = [
     {
       icon: BookOpen,
@@ -250,17 +295,37 @@ const ResourcesDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
       description: "Browse whitepapers, ebooks, reports & more",
       href: "/resources",
     },
-    { icon: FileText, title: "Blog", description: "Best practices, industry trends and news", href: "/blog" },
-    { icon: Video, title: "Webinars", description: "Browse on-demand or upcoming sessions", href: "/webinars" },
+    {
+      icon: FileText,
+      title: "Blog",
+      description: "Best practices, industry trends and news",
+      href: "/blog",
+    },
+    {
+      icon: Video,
+      title: "Webinars",
+      description: "Browse on-demand or upcoming sessions",
+      href: "/webinars",
+    },
     {
       icon: Lightbulb,
       title: "The Data Glossary",
       description: "Get up to speed on data streaming concepts",
       href: "/glossary",
     },
-    { icon: Shield, title: "Professional Services", description: "Expert guidance and support", href: "/services" },
-    { icon: Headphones, title: "Contact Support", description: "Get help from our support team", href: "https://support.confluent.io/?_gl=1*1q5b2yo*_gcl_au*MjAyNDEyNDI1My4xNzUzNzk4NTU4*_ga*MTYxODE0MDMwNC4xNzUzNzk4NTU5*_ga_D2D3EGKSGD*czE3NTM5NDk1NzYkbzE0JGcxJHQxNzUzOTUzNTIwJGo1OSRsMCRoMA..&_ga=2.94638428.1597049125.1753798559-1618140304.1753798559" },
-  ]
+    {
+      icon: Shield,
+      title: "Professional Services",
+      description: "Expert guidance and support",
+      href: "/services",
+    },
+    {
+      icon: Headphones,
+      title: "Contact Support",
+      description: "Get help from our support team",
+      href: "https://support.confluent.io/?_gl=1*1q5b2yo*_gcl_au*MjAyNDEyNDI1My4xNzUzNzk4NTU4*_ga*MTYxODE0MDMwNC4xNzUzNzk4NTU5*_ga_D2D3EGKSGD*czE3NTM5NDk1NzYkbzE0JGcxJHQxNzUzOTUzNTIwJGo1OSRsMCRoMA..&_ga=2.94638428.1597049125.1753798559-1618140304.1753798559",
+    },
+  ];
   const developerResources = [
     {
       icon: Code,
@@ -268,15 +333,25 @@ const ResourcesDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
       description: "Courses, tutorials and language guides",
       href: "https://developer.confluent.io/?_gl=1*ug79g0*_gcl_au*MjAyNDEyNDI1My4xNzUzNzk4NTU4*_ga*MTYxODE0MDMwNC4xNzUzNzk4NTU5*_ga_D2D3EGKSGD*czE3NTM5NDk1NzYkbzE0JGcxJHQxNzUzOTUzNTIwJGo1OSRsMCRoMA..&_ga=2.90446298.1597049125.1753798559-1618140304.1753798559",
     },
-    { icon: FileText, title: "Documentation", description: "Guides, tutorials, API and CLI references", href: "https://docs.confluent.io/?_gl=1*4ze00b*_gcl_au*MjAyNDEyNDI1My4xNzUzNzk4NTU4*_ga*MTYxODE0MDMwNC4xNzUzNzk4NTU5*_ga_D2D3EGKSGD*czE3NTM5NDk1NzYkbzE0JGcxJHQxNzUzOTUzOTc2JGo2MCRsMCRoMA..&_ga=2.90446298.1597049125.1753798559-1618140304.1753798559" },
+    {
+      icon: FileText,
+      title: "Documentation",
+      description: "Guides, tutorials, API and CLI references",
+      href: "https://docs.confluent.io/?_gl=1*4ze00b*_gcl_au*MjAyNDEyNDI1My4xNzUzNzk4NTU4*_ga*MTYxODE0MDMwNC4xNzUzNzk4NTU5*_ga_D2D3EGKSGD*czE3NTM5NDk1NzYkbzE0JGcxJHQxNzUzOTUzOTc2JGo2MCRsMCRoMA..&_ga=2.90446298.1597049125.1753798559-1618140304.1753798559",
+    },
     {
       icon: GraduationCap,
       title: "Training & Certification",
       description: "Start learning for free from Confluent",
       href: "/training",
     },
-    { icon: Users, title: "Developer Meetups", description: "Join a global community of developers", href: "https://developer.confluent.io/meetups/" },
-  ]
+    {
+      icon: Users,
+      title: "Developer Meetups",
+      description: "Join a global community of developers",
+      href: "https://developer.confluent.io/meetups/",
+    },
+  ];
   return (
     <div
       className="absolute top-full left-0 mt-1 w-[500px] bg-white rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden"
@@ -286,7 +361,9 @@ const ResourcesDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
       <div className="p-6">
         <div className="grid grid-cols-2 gap-8">
           <div>
-            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">GENERAL RESOURCES</h4>
+            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">
+              GENERAL RESOURCES
+            </h4>
             <div className="space-y-1">
               {generalResources.map((item) => (
                 <DropdownItem key={item.title} {...item} />
@@ -294,7 +371,9 @@ const ResourcesDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
             </div>
           </div>
           <div>
-            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">DEVELOPER RESOURCES</h4>
+            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">
+              DEVELOPER RESOURCES
+            </h4>
             <div className="space-y-1">
               {developerResources.map((item) => (
                 <DropdownItem key={item.title} {...item} />
@@ -304,16 +383,18 @@ const ResourcesDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 // NEW: Solutions dropdown component (special layout)
 const SolutionsDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
-  if (!isActive) return null
-  const { sections } = dropdownData.solutions
+  if (!isActive) return null;
+  const { sections } = dropdownData.solutions;
 
-  const useCases = sections.find((s: any) => s.title === "USE CASES")?.items || []
-  const industries = sections.find((s: any) => s.title === "INDUSTRIES")?.items || []
+  const useCases =
+    sections.find((s: any) => s.title === "USE CASES")?.items || [];
+  const industries =
+    sections.find((s: any) => s.title === "INDUSTRIES")?.items || [];
 
   return (
     <div
@@ -324,7 +405,9 @@ const SolutionsDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
       <div className="grid grid-cols-3 gap-0">
         {/* Use Cases */}
         <div className="p-6 border-r border-gray-100">
-          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">USE CASES</h4>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
+            USE CASES
+          </h4>
           <div className="space-y-1">
             {useCases.map((item: any) => (
               <DropdownItem key={item.title} {...item} />
@@ -333,7 +416,9 @@ const SolutionsDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
         </div>
         {/* Industries */}
         <div className="p-6 border-r border-gray-100">
-          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">INDUSTRIES</h4>
+          <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
+            INDUSTRIES
+          </h4>
           <div className="space-y-1">
             {industries.map((item: any) => (
               <DropdownItem key={item.title} {...item} />
@@ -350,8 +435,8 @@ const SolutionsDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
             </div>
             <h3 className="font-bold text-gray-900 mb-2">Explore Solutions</h3>
             <p className="text-sm text-gray-600 mb-4">
-              Discover how Confluent helps organizations across various industries solve their real-time data
-              challenges.
+              Discover how Confluent helps organizations across various
+              industries solve their real-time data challenges.
             </p>
             <Link href="/all-solutions">
               <Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-lg transition-colors">
@@ -362,18 +447,24 @@ const SolutionsDropdown = ({ isActive, onMouseEnter, onMouseLeave }: any) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 // Reusable dropdown item component
 interface DropdownItemProps {
-  href: string
-  icon: React.ElementType
-  title: string
-  description?: string
-  external?: boolean
+  href: string;
+  icon: React.ElementType;
+  title: string;
+  description?: string;
+  external?: boolean;
 }
-const DropdownItem = ({ href, icon: Icon, title, description, external = false }: DropdownItemProps) => (
+const DropdownItem = ({
+  href,
+  icon: Icon,
+  title,
+  description,
+  external = false,
+}: DropdownItemProps) => (
   <Link
     href={href}
     target={external ? "_blank" : undefined}
@@ -381,21 +472,30 @@ const DropdownItem = ({ href, icon: Icon, title, description, external = false }
   >
     <Icon className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
     <div className="flex-1">
-      <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">{title}</h3>
-      {description && <p className="text-sm text-gray-600 mt-0.5">{description}</p>}
+      <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+        {title}
+      </h3>
+      {description && (
+        <p className="text-sm text-gray-600 mt-0.5">{description}</p>
+      )}
     </div>
   </Link>
-)
+);
 
 // Standard dropdown component with explicit types
 interface StandardDropdownProps {
-  data: any
-  isActive: boolean
-  onMouseEnter: React.MouseEventHandler<HTMLDivElement>
-  onMouseLeave: React.MouseEventHandler<HTMLDivElement>
+  data: any;
+  isActive: boolean;
+  onMouseEnter: React.MouseEventHandler<HTMLDivElement>;
+  onMouseLeave: React.MouseEventHandler<HTMLDivElement>;
 }
-const StandardDropdown = ({ data, isActive, onMouseEnter, onMouseLeave }: StandardDropdownProps) => {
-  if (!isActive || !data) return null
+const StandardDropdown = ({
+  data,
+  isActive,
+  onMouseEnter,
+  onMouseLeave,
+}: StandardDropdownProps) => {
+  if (!isActive || !data) return null;
   return (
     <div
       className={`absolute top-full left-0 mt-1 ${data.width} bg-white rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden`}
@@ -408,7 +508,9 @@ const StandardDropdown = ({ data, isActive, onMouseEnter, onMouseLeave }: Standa
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {data.sections.map((section: any) => (
               <div key={section.title}>
-                <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">{section.title}</h4>
+                <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">
+                  {section.title}
+                </h4>
                 <div className="flex flex-col gap-2">
                   {section.items.map((item: any) => (
                     <DropdownItem key={item.title} {...item} />
@@ -427,31 +529,35 @@ const StandardDropdown = ({ data, isActive, onMouseEnter, onMouseLeave }: Standa
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
 // Main navigation component
+import LogoIcon from "@/images/icon.jpg";
+import Image from "next/image";
+import { useAuth } from "@/context/useAuth";
+import UserDropdown from "./UserDropdown";
 export default function Navigation() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [activeDropdown, setActiveDropdown] = useState(null)
-
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+const {user,logout} = useAuth()
   const handleDropdownEnter = (dropdownName: any) => {
-    setActiveDropdown(dropdownName)
-  }
+    setActiveDropdown(dropdownName);
+  };
 
   const handleDropdownLeave = () => {
-    setActiveDropdown(null)
-  }
+    setActiveDropdown(null);
+  };
 
   const navItems = [
-    { name: "WHY CONFLUENT", key: "why", hasDropdown: true },
+    { name: "WHY APACHE", key: "why", hasDropdown: true },
     { name: "PLATFORM", key: "platform", hasDropdown: true },
     { name: "PRICING", key: "pricing", hasDropdown: true },
     { name: "SOLUTIONS", key: "solutions", hasDropdown: true },
     { name: "RESOURCES", key: "resources", hasDropdown: true },
     { name: "ABOUT", key: "about", href: "/about" },
     { name: "CONTACT", key: "contact", href: "/contact" },
-  ]
+  ];
 
   return (
     <nav className="bg-gradient-to-r from-blue-900 to-purple-800 text-white sticky top-0 z-50 backdrop-blur-md bg-opacity-95">
@@ -463,11 +569,18 @@ export default function Navigation() {
               <Link href="/">
                 <div className="flex items-center space-x-2 cursor-pointer group">
                   <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center group-hover:scale-105 transition-transform">
-                    <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-                    </svg>
+                    <Image
+                      priority
+                      src={LogoIcon}
+                      width={50}
+                      height={50}
+                      alt="Logo"
+                      className="rounded-xl"
+                    />
                   </div>
-                  <span className="text-xl font-bold tracking-tight">CONFLUENT</span>
+                  <span className="text-xl font-bold tracking-tight">
+                    APACHE
+                  </span>
                 </div>
               </Link>
             </div>
@@ -503,7 +616,9 @@ export default function Navigation() {
                         {item.key === "resources" && (
                           <ResourcesDropdown
                             isActive={activeDropdown === "resources"}
-                            onMouseEnter={() => handleDropdownEnter("resources")}
+                            onMouseEnter={() =>
+                              handleDropdownEnter("resources")
+                            }
                             onMouseLeave={handleDropdownLeave}
                           />
                         )}
@@ -512,7 +627,9 @@ export default function Navigation() {
                         {item.key === "solutions" && (
                           <SolutionsDropdown
                             isActive={activeDropdown === "solutions"}
-                            onMouseEnter={() => handleDropdownEnter("solutions")}
+                            onMouseEnter={() =>
+                              handleDropdownEnter("solutions")
+                            }
                             onMouseLeave={handleDropdownLeave}
                           />
                         )}
@@ -528,7 +645,10 @@ export default function Navigation() {
                       </>
                     ) : (
                       <Link
-                        href={item.href ?? `/${item.key.toLowerCase().replace(" ", "-")}`}
+                        href={
+                          item.href ??
+                          `/${item.key.toLowerCase().replace(" ", "-")}`
+                        }
                         className="text-white/90 hover:text-white px-3 py-2 text-sm font-medium transition-colors"
                       >
                         {item.name}
@@ -541,26 +661,22 @@ export default function Navigation() {
           </div>
           {/* Right side actions */}
           <div className="flex items-center space-x-4">
-            <button className="text-white/90 hover:text-white p-2 transition-colors rounded-full hover:bg-white/10">
-              <Search className="h-5 w-5" />
-            </button>
-            <Link href="/login">
-              <button className="text-white/90 hover:text-white p-2 transition-colors rounded-full hover:bg-white/10">
-                <User className="h-5 w-5" />
-              </button>
-            </Link>
-            <Link href="/get-started">
+          {!user ? <Link href="/get-started">
               <Button className="bg-blue-600 text-white hover:bg-blue-700 text-sm font-medium px-6 py-2 rounded-full transition-all hover:scale-105 shadow-lg">
                 Start For Free
               </Button>
-            </Link>
+            </Link>: <UserDropdown user={user}  onLogout={logout} />  }
 
             {/* Mobile menu button */}
             <button
               className="md:hidden text-white p-2 rounded-full hover:bg-white/10 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
@@ -571,7 +687,9 @@ export default function Navigation() {
               {navItems.map((item) => (
                 <Link
                   key={item.key}
-                  href={item.href || `/${item.key.toLowerCase().replace(" ", "-")}`}
+                  href={
+                    item.href || `/${item.key.toLowerCase().replace(" ", "-")}`
+                  }
                   className="text-white/90 hover:text-white px-3 py-2 text-sm font-medium hover:bg-white/10 rounded-lg transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -600,5 +718,5 @@ export default function Navigation() {
         )}
       </div>
     </nav>
-  )
+  );
 }
